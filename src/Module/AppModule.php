@@ -33,6 +33,9 @@ class AppModule extends AbstractModule
     {
         $this->install(new StandardPackageModule('Kenjis\Contact', $this->context, dirname(dirname(__DIR__))));
 
+        // override twig module
+        $this->install(new Provider\TwigModule($this));
+
         // override module
         // $this->install(new SmartyModule($this));
 
