@@ -42,7 +42,7 @@ class AppModule extends AbstractModule
 
         // aspect @Form annotaion
         $this->bindInterceptor(
-            $this->matcher->subclassesOf('Kenjis\Contact\Resource\Page\Contact'),
+            $this->matcher->subclassesOf('Kenjis\Contact\Resource\App\Contact\Form'),
             $this->matcher->annotatedWith('BEAR\Sunday\Annotation\Form'),
             [$this->requestInjection('Kenjis\Contact\Interceptor\Contact\Form')]
         );

@@ -11,62 +11,30 @@
 namespace Kenjis\Contact\Resource\Page;
 
 use BEAR\Resource\ResourceObject;
-use Ray\Di\Di\Inject;
-use Kenjis\Contact\Service\SwiftMailerFactory;
-use BEAR\Resource\Code;
+use BEAR\Sunday\Inject\ResourceInject;
 
 class Contact extends ResourceObject
 {
-    /**
-     * @Inject
-     */
-    public function __construct(SwiftMailerFactory $mailer)
-    {
-        $this->mailer = $mailer;
-    }
+    use ResourceInject;
 
-    /**
-     * @BEAR\Sunday\Annotation\Form
-     */
     public function onGet()
     {
+        $this['contact_form'] = $this->resource->get
+            ->uri('app://self/contact/form')
+            ->eager->request();
+
         return $this;
     }
 
-    /**
-     * @BEAR\Sunday\Annotation\Form
-     */
     public function onPost($name, $email, $comment)
     {
-        $this->sendmail($name, $email, $comment);
+        $this['contact_form'] = $this->resource->post
+            ->uri('app://self/contact/form')
+            ->withQuery(['name' => $name, 'email' => $email, 'comment' => $comment])
+            ->eager->request();
 
-        $this['code'] = $this->code = Code::CREATED;
-        $this['name']    = $name;
-        $this['email']   = $email;
-        $this['comment'] = $comment;
+        $this->code = $this['contact_form']->code;
 
         return $this;
-    }
-
-    private function sendmail($name, $email, $comment)
-    {
-        $data = [
-            'name'    => $name,
-            'email'   => $email,
-            'comment' => $comment,
-        ];
-
-        $mailer = $this->mailer->create();
-        $mailer->setSubject('コンタクトフォーム')
-            ->setFrom($data['email'], $data['name'])
-            ->setTo('admin@example.org', '管理者')
-            ->setTemplate('mailer/contact_form.twig', $data);
-
-//        echo '<pre>'
-//            . htmlspecialchars($mailer, ENT_QUOTES, 'UTF-8')
-//            . '</pre>';
-
-        $result = $mailer->send();
-        return $result;
     }
 }
