@@ -6,6 +6,7 @@ use BEAR\Package\Module\Package\StandardPackageModule;
 use Ray\Di\AbstractModule;
 use Ray\Di\Di\Inject;
 use Ray\Di\Di\Named;
+use BEAR\Package\Module\Session\AuraSession\SessionModule;
 
 class AppModule extends AbstractModule
 {
@@ -35,6 +36,16 @@ class AppModule extends AbstractModule
 
         // override twig module
         $this->install(new Provider\TwigModule($this));
+
+        // install aura.session
+        $this->install(new SessionModule());
+
+        // aspect @Form annotaion
+        $this->bindInterceptor(
+            $this->matcher->subclassesOf('Kenjis\Contact\Resource\Page\Contact'),
+            $this->matcher->annotatedWith('BEAR\Sunday\Annotation\Form'),
+            [$this->requestInjection('Kenjis\Contact\Interceptor\Contact\Form')]
+        );
 
         // override module
         // $this->install(new SmartyModule($this));

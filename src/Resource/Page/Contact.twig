@@ -19,21 +19,23 @@
     <p>Thank you!</p>
 {% else %}
     <form role="form" action="" method="post" enctype="multipart/form-data">
+        {{ form(form['__csrf_token']['hint']) }}
+
         <div class="form-group{%if form['name']['error'] %} has-error{% endif %}">
             <label class="control-label" for="name">Name</label>
-            <input id="name" type="text" name="name" class="form-control" size="20" maxlength="50" value="{{ form['name']['value'] }}" />
+            {{ form(form['name']['hint']) }}
             <label class="control-label" for="name">{{ form['name']['error'] }}</label>
         </div>
 
         <div class="form-group{%if form['email']['error'] %} has-error{% endif %}">
             <label class="control-label" for="email">Email</label>
-            <input id="email" type="text" name="email" class="form-control" size="20" maxlength="100" value="{{ form['email']['value'] }}" />
+            {{ form(form['email']['hint']) }}
             <label class="control-label" for="email">{{ form['email']['error'] }}</label>
         </div>
 
         <div class="form-group{%if form['comment']['error'] %} has-error{% endif %}">
             <label class="control-label" for="comment">Comment</label>
-            <textarea id="comment" name="comment" class="form-control" cols="40" rows="5">{{ form['comment']['value'] }}</textarea>
+            {{ form(form['comment']['hint']) }}
             <label class="control-label" for="comment">{{ form['comment']['error'] }}</label>
         </div>
 
