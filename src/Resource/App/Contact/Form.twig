@@ -1,3 +1,17 @@
+<script src="/assets/js/bootstrap-confirmation.js"></script>
+<script>
+$(document).ready(function () {
+    $('[data-toggle="confirmation"]').confirmation({
+        title: 'Are you sure to submit?',
+        btnOkClass: 'btn btn-sm btn-primary',
+        btnOkLabel: 'Yes',
+        onConfirm: function() {
+            $('form').submit();
+        }
+    });
+});
+</script>
+
 <div id="contact_form">
     <h1>Contact Form</h1>
 {% if code == 201 %}
@@ -29,7 +43,7 @@
             <label class="control-label" for="comment">{{ form['comment']['error'] }}</label>
         </div>
 
-        <input class="btn btn-default" type="submit" name="submit" value="Send">
+        <input data-toggle="confirmation" class="btn btn-default" type="submit" name="_submit" value="Send">
     </form>
 {% endif %}
 </div><!-- end of id="contact_form" -->

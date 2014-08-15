@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2790cc0f0328c4e79e6cf9830c1736df",
+    "hash": "0a932f76c8d7c0dfd2dc84f867e7bd48",
     "packages": [
         {
             "name": "any/serializer",
@@ -1901,6 +1901,56 @@
             "time": "2014-08-05 09:00:40"
         },
         {
+            "name": "tavicu/bootstrap-confirmation",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tavicu/bootstrap-confirmation.git",
+                "reference": "8497ae5e2b74cc5b7e057b4c4525cedecd21bc4b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tavicu/bootstrap-confirmation/zipball/8497ae5e2b74cc5b7e057b4c4525cedecd21bc4b",
+                "reference": "8497ae5e2b74cc5b7e057b4c4525cedecd21bc4b",
+                "shasum": ""
+            },
+            "suggest": {
+                "components/jquery": "1.8.*",
+                "twbs/bootstrap": "3.*"
+            },
+            "type": "library",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tavicu",
+                    "homepage": "https://github.com/Tavicu"
+                },
+                {
+                    "name": "Nimit Suwannagate",
+                    "homepage": "https://github.com/ethaizone"
+                },
+                {
+                    "name": "jibe914",
+                    "homepage": "https://github.com/jibe914"
+                }
+            ],
+            "description": "Confirmation plugin compatible with Twitter Bootstrap 3 extending Popover",
+            "homepage": "https://github.com/Tavicu/bootstrap-confirmation",
+            "keywords": [
+                "bootstrap",
+                "bootstrap confirmation",
+                "bootstrap dialog",
+                "confirmation"
+            ],
+            "support": {
+                "source": "https://github.com/Tavicu/bootstrap-confirmation/tree/master",
+                "issues": "https://github.com/Tavicu/bootstrap-confirmation/issues"
+            },
+            "time": "2014-03-09 19:27:36"
+        },
+        {
             "name": "twig/twig",
             "version": "v1.16.0",
             "source": {
@@ -3295,6 +3345,7 @@
         "bear/package": 20,
         "ray/di": 20,
         "swiftmailer/swiftmailer": 0,
+        "tavicu/bootstrap-confirmation": 20,
         "bear/dev-package": 20
     },
     "prefer-stable": true,

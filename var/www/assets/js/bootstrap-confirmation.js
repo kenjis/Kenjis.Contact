@@ -1,0 +1,1 @@
+../../../../vendor/tavicu/bootstrap-confirmation/bootstrap-confirmation.js

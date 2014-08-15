@@ -2,10 +2,17 @@
     "name": "kenjis/contact",
     "description":"n/a",
     "license": "proprietary",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Tavicu/bootstrap-confirmation.git"
+        }
+    ],
     "require": {
         "bear/package": "dev-develop",
         "ray/di": "dev-master",
-        "swiftmailer/swiftmailer": "@stable"
+        "swiftmailer/swiftmailer": "@stable",
+        "tavicu/bootstrap-confirmation": "dev-master"
     },
     "require-dev": {
         "bear/dev-package": "~0.1@dev"
