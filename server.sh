@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export MAILER_GMAIL_ID=アカウント@gmail.com
-export MAILER_GMAIL_PASSWORD=パスワード
+export MAILER_GMAIL_ID=<your_account@gmail.com>
+export MAILER_GMAIL_PASSWORD=<your_password>
 
 # clear BEAR.Sunday's cache
 php bin/clear.php

@@ -59,9 +59,9 @@ class Form extends ResourceObject
         ];
 
         $mailer = $this->mailer->create();
-        $mailer->setSubject('コンタクトフォーム')
+        $mailer->setSubject('Contact Form')
             ->setFrom($data['email'], $data['name'])
-            ->setTo('admin@example.org', '管理者')
+            ->setTo('admin@example.org', 'Administrator')
             ->setTemplate('mailer/contact_form.twig', $data);
 
 //        echo '<pre>'
