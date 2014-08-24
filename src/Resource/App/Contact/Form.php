@@ -19,6 +19,10 @@ class Form extends ResourceObject
 {
     private $mailer;
 
+    // Email account to send mail
+    private $adminEmail = 'admin@example.org';
+    private $adminName = 'Administrator';
+
     /**
      * @Inject
      */
@@ -61,7 +65,7 @@ class Form extends ResourceObject
         $mailer = $this->mailer->create();
         $mailer->setSubject('Contact Form')
             ->setFrom($data['email'], $data['name'])
-            ->setTo('admin@example.org', 'Administrator')
+            ->setTo($this->adminEmail, $this->adminName)
             ->setTemplate('mailer/contact_form.twig', $data);
 
 //        echo '<pre>'
