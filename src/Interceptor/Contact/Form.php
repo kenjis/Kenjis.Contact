@@ -38,7 +38,8 @@ class Form implements MethodInterceptor
                     'id' => 'name',
                     'name' => 'name',
                     'size' => 20,
-                    'maxlength' => 50
+                    'maxlength' => 50,
+                    'required' => 'required'
                 ]
             );
         $filter->setRule(
@@ -60,6 +61,7 @@ class Form implements MethodInterceptor
                     'name' => 'email',
                     'size' => 20,
                     'maxlength' => 100,
+                    'required' => 'required'
                 ]
             );
         $filter->setRule(
@@ -80,6 +82,7 @@ class Form implements MethodInterceptor
                     'name' => 'comment',
                     'cols' => 40,
                     'rows' => 5,
+                    'required' => 'required'
                 ]
             );
         $filter->setRule(
