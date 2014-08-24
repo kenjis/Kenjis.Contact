@@ -1,6 +1,6 @@
 # BEAR.Sunday Sample Contact Form
 
-A Sample Contact Form maed with BEAR.Sunday which is a resource orientated framework with a REST centered architecture, implementing Dependency Injection and Aspect Orientated Programming' at its core.
+A Sample Contact Form made with BEAR.Sunday which is a resource orientated framework with a REST centered architecture, implementing Dependency Injection and Aspect Orientated Programming' at its core.
 
 ## Requirement
 
@@ -16,7 +16,7 @@ $ composer install
 
 ## Configuration
 
-Edit server.sh. Set your Gmail account info to send mail via Gmail.
+Edit `server.sh`. Set your Gmail account info to send mail via Gmail.
 
 ~~~diff
 --- a/server.sh
@@ -33,7 +33,7 @@ Edit server.sh. Set your Gmail account info to send mail via Gmail.
  php bin/clear.php
 ~~~
 
-Edit src/Resource/App/Contact/Form.php. Set your Email account for recieving posted data.
+Edit `src/Resource/App/Contact/Form.php`. Set your Email account to receive posted data.
 
 ~~~diff
 --- a/src/Resource/App/Contact/Form.php
