@@ -17,7 +17,7 @@ use Ray\Di\Di\Inject;
 
 class Form extends ResourceObject
 {
-    private $mailer;
+    private $mailerFactory;
 
     // Email account info to receive posted data
     private $adminEmail = 'admin@example.org';
@@ -26,9 +26,9 @@ class Form extends ResourceObject
     /**
      * @Inject
      */
-    public function __construct(SwiftMailerFactory $mailer)
+    public function __construct(SwiftMailerFactory $mailerFactory)
     {
-        $this->mailer = $mailer;
+        $this->mailerFactory = $mailerFactory;
     }
 
     /**
@@ -62,7 +62,7 @@ class Form extends ResourceObject
             'comment' => $comment,
         ];
 
-        $mailer = $this->mailer->create();
+        $mailer = $this->mailerFactory->create();
         $mailer->setSubject('Contact Form')
             ->setFrom($data['email'], $data['name'])
             ->setTo($this->adminEmail, $this->adminName)
