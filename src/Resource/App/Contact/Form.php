@@ -19,7 +19,7 @@ class Form extends ResourceObject
 {
     private $mailer;
 
-    // Email account to send mail
+    // Email account info to receive posted data
     private $adminEmail = 'admin@example.org';
     private $adminName = 'Administrator';
 
