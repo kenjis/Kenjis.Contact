@@ -9,8 +9,7 @@
         }
     ],
     "require": {
-        "bear/package": "dev-develop",
-        "ray/di": "dev-master",
+        "bear/package": "0.12.*",
         "swiftmailer/swiftmailer": "@stable",
         "tavicu/bootstrap-confirmation": "dev-master"
     },
