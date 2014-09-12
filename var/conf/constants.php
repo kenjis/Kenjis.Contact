@@ -24,6 +24,11 @@ return [
         // optional
         'master_db' => $masterDb,
         'slave_db' => $slaveDb,
+        'contact_form' => [
+            'subject'     => 'Contact Form',
+            'admin_email' => 'admin@example.org',
+            'admin_name'  => 'Administrator',
+        ],
     ],
     'dev' => [],
     'api' => [],

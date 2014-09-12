@@ -14,21 +14,29 @@ use BEAR\Resource\ResourceObject;
 use BEAR\Resource\Code;
 use Kenjis\Contact\Service\SwiftMailerFactory;
 use Ray\Di\Di\Inject;
+use Ray\Di\Di\Named;
 
 class Form extends ResourceObject
 {
     private $mailerFactory;
 
+    // Email subject
+    private $subject;
     // Email account info to receive posted data
-    private $adminEmail = 'admin@example.org';
-    private $adminName = 'Administrator';
+    private $adminEmail;
+    private $adminName;
 
     /**
      * @Inject
+     * @Named("config=contact_form")
      */
-    public function __construct(SwiftMailerFactory $mailerFactory)
+    public function __construct(SwiftMailerFactory $mailerFactory, $config)
     {
         $this->mailerFactory = $mailerFactory;
+
+        $this->subject    = $config['subject'];
+        $this->adminEmail = $config['admin_email'];
+        $this->adminName  = $config['admin_name'];
     }
 
     /**
@@ -63,7 +71,7 @@ class Form extends ResourceObject
         ];
 
         $mailer = $this->mailerFactory->create();
-        $mailer->setSubject('Contact Form')
+        $mailer->setSubject($this->subject)
             ->setFrom($data['email'], $data['name'])
             ->setTo($this->adminEmail, $this->adminName)
             ->setTemplate('mailer/contact_form.twig', $data);
