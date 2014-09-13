@@ -33,22 +33,24 @@ Edit `server.sh`. Set your Gmail account info to send mail via Gmail.
  php bin/clear.php
 ~~~
 
-Edit `src/Resource/App/Contact/Form.php`. Set your Email account to receive posted data.
+Edit `var/conf/constants.php`. Set your Email account to receive posted data.
 
 ~~~diff
---- a/src/Resource/App/Contact/Form.php
-+++ b/src/Resource/App/Contact/Form.php
-@@ -20,8 +20,8 @@ class Form extends ResourceObject
-     private $mailer;
- 
-     // Email account to send mail
--    private $adminEmail = 'admin@example.org';
--    private $adminName = 'Administrator';
-+    private $adminEmail = 'you@example.com';
-+    private $adminName = 'Name what you want';
- 
-     /**
-      * @Inject
+--- a/var/conf/constants.php
++++ b/var/conf/constants.php
+@@ -25,9 +25,9 @@ return [
+         'master_db' => $masterDb,
+         'slave_db' => $slaveDb,
+         'contact_form' => [
+-            'subject'     => 'Contact Form',
+-            'admin_email' => 'admin@example.org',
+-            'admin_name'  => 'Administrator',
++            'subject'     => 'Subject of Email',
++            'admin_email' => 'you@example.com',
++            'admin_name'  => 'Your name',
+         ],
+     ],
+     'dev' => [],
 ~~~
 
 ## Running App
